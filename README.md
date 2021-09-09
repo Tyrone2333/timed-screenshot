@@ -1,5 +1,5 @@
-# NodejsGetScreenshotSend
-Nodejs获取桌面截图，并定时发送给指定邮箱
+# timed-screenshot
+Node 获取桌面截图, 并按日期归档, 也可定时发送给指定邮箱
 
 ## 1.安装相关包
 ```
@@ -43,11 +43,11 @@ var transporter = nodemailer.createTransport({
 ```
 
 ## 7.设置定时
->设置每一分钟发送一次
+> 8-23 点定时执行
 ```
-var rule = new schedule.RecurrenceRule();
-rule.second = 10;
-var j = schedule.scheduleJob(rule,function(){
+let cron = '0 0 8-23 * * ? '
+
+schedule.scheduleJob(cron,function(){
 
 })
 ```
