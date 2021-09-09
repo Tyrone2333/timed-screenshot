@@ -56,6 +56,9 @@ const transporter = nodemailer.createTransport({
 
 // 定时规则, 8-23 点定时执行
 let cron = '0 0 8-23 * * ? '
+
+console.log('任务开始,默认 8-23 点定时截图')
+
 schedule.scheduleJob(cron, async function () {
     const date = new Date()
     let fileName = formatFixedDate( date.getTime(),'yyyy-MM-dd HH-mm-ss')
