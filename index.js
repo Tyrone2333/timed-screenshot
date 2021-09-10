@@ -56,6 +56,7 @@ const transporter = nodemailer.createTransport({
 
 // 定时规则, 8-23 点定时执行
 let cron = '0 0 8-23 * * ? '
+// let cron = '0/3 * * * * ? '
 
 console.log('任务开始,默认 8-23 点定时截图')
 
@@ -70,12 +71,12 @@ schedule.scheduleJob(cron, async function () {
     // console.log(fileName)
 
     // 截图
-    screenshot().then((img) => {
-        fs.writeFile(targetDir + `/${fileName}.jpg`, img, function (err) {
+    screenshot({format: 'png'}).then((img) => {
+        fs.writeFile(targetDir + `/${fileName}.png`, img, function (err) {
             if (err) {
                 throw err
             }
-            console.log(targetDir + `/${fileName}.jpg`)
+            console.log(targetDir + `/${fileName}.png`)
         })
         // const message = {
         // 	from:"",
