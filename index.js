@@ -54,11 +54,11 @@ const transporter = nodemailer.createTransport({
     debug: true, // include SMTP traffic in the logs
 })
 
-// 定时规则, 8-23 点定时执行
-let cron = '0 0 8-23 * * ? '
+// 定时规则, 8-21 点定时执行
+let cron = '0 0 8-21 * * ? '
 // let cron = '0/3 * * * * ? '
 
-console.log('任务开始,默认 8-23 点定时截图')
+console.log('任务开始,默认 8-21 点定时截图')
 
 schedule.scheduleJob(cron, async function () {
     const date = new Date()
